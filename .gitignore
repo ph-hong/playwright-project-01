@@ -1,0 +1,10 @@
+# ignore Mac system files
+.DS_store
+
+# ignore node_modules folder
+node_modules
+
+# ignore ALL .log files
+*.log
+yarn.lock
+.vscode
