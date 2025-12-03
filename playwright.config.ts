@@ -5,11 +5,12 @@ export default defineConfig({
     projects: [
         {
             name: 'Chromium',
-            use: { ...devices['Desktop Chrome'] }
-        }
+            use: { ...devices['Desktop Chrome'] },
+        },
     ],
     use: {
-        headless: false
+        headless: false,
+        baseURL: "https://playwright.dev/"
     }
 
 })
