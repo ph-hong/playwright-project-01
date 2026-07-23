@@ -9,11 +9,13 @@ export default class HomePage extends BasePage {
     }
 
     pageBodyComponent(): PageBodyComponent {
-        return new PageBodyComponent(this.page.locator(PageBodyComponent.LOCATOR));
+        return new PageBodyComponent(
+            this.page.locator(PageBodyComponent.LOCATOR));
     };
 
     footerComponent(): FooterComponent {
-        return new FooterComponent(this.page.locator(FooterComponent.LOCATOR));
+        return new FooterComponent(
+            this.page.locator(FooterComponent.LOCATOR));
     }
 
 }

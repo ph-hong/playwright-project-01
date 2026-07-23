@@ -1,5 +1,5 @@
 import { Locator } from "@playwright/test";
-import ProductItemComponent from "./ProductItemCoponent";
+import ProductItemComponent from "./ProductItemComponent";
 
 export default class PageBodyComponent {
     public static readonly LOCATOR = '.page-body';
@@ -8,8 +8,12 @@ export default class PageBodyComponent {
         this.component = component
     }
 
-    async productItemComponentList(): Promise<ProductItemComponent[]> {
-        const productItemCompList = await this.component.locator(ProductItemComponent.LOCATOR).all();
-        return productItemCompList.map(locator => new ProductItemComponent(locator));
+    async productItems(): Promise<ProductItemComponent[]> {
+        const itemLocators = await this.component
+            .locator(ProductItemComponent.LOCATOR)
+            .all();
+
+        return itemLocators.map(
+            locator => new ProductItemComponent(locator));
     }
 }

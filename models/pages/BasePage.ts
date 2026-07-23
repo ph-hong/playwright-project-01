@@ -7,10 +7,9 @@ export default class BasePage {
     constructor(page: Page) {
         this.page = page
     }
-
     
     footerComponent(): FooterComponent {
-        return new FooterComponent(this.page.locator(FooterComponent.LOCATOR));
+        return new FooterComponent(
+            this.page.locator(FooterComponent.LOCATOR));
     }
-
 }
