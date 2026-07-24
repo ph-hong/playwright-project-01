@@ -1,7 +1,7 @@
 import { Locator } from "@playwright/test";
-import FooterColumn from "./FooterColumn";
+import Footer from "./Footer";
 
-export default class InformationColumn extends FooterColumn {
+export default class InformationColumn extends Footer {
     public static readonly LOCATOR = '.column.information';
 
     // constructor(conponent: Locator) {

@@ -1,6 +1,6 @@
 import { Locator } from "@playwright/test";
 
-export default class FooterColumn {
+export default class Footer {
 
     protected component: Locator;
     private titleSelector = 'h3';
