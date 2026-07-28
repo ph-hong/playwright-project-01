@@ -2,6 +2,7 @@ import { Page } from "@playwright/test";
 import PageBodyComponent from "../components/PageBodyComponent";
 import FooterComponent from "../components/global/footer/FooterComponent";
 import BasePage from "./BasePage";
+import HeaderComponent from "../components/global/header/HeaderComponent";
 
 export default class HomePage extends BasePage {
     constructor(page: Page) {
@@ -16,6 +17,7 @@ export default class HomePage extends BasePage {
     footerComponent(): FooterComponent {
         return new FooterComponent(
             this.page.locator(FooterComponent.LOCATOR));
-    }
+    };
+
 
 }
