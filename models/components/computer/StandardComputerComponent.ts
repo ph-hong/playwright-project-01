@@ -1,6 +1,8 @@
 import { Locator } from "@playwright/test";
 import { ComputerEssentialComponent } from "./ComputerEssentialComponent";
+import { selector } from "../../SelectorDecorator";
 
+@selector('.product-essential')
 export default class StandardComputerComponent extends ComputerEssentialComponent {
 
     private allDropdownSelector = 'select[id^="product_attribute"]';
@@ -12,11 +14,10 @@ export default class StandardComputerComponent extends ComputerEssentialComponen
     public async selectRAM(value: string) {
         const RAM_DROPDOWN_INDEX: number = 1;
 
-        const ramDropdown = this.component
-            .locator(this.allDropdownSelector)
-            .nth(RAM_DROPDOWN_INDEX);
-
+        const allDropdownOptions = await this.component.locator(this.allDropdownSelector).all()
+        const ramDropdown = allDropdownOptions[RAM_DROPDOWN_INDEX];
         const allOptionLocators = await ramDropdown.locator('option').all();
+        // const ramDropdown = this.component.locator(this.allDropdownSelector).nth(RAM_DROPDOWN_INDEX);
 
         let optionIndex: number = -1;
         let optionFullText: string | null = '';
