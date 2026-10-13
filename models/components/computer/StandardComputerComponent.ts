@@ -11,7 +11,7 @@ export default class StandardComputerComponent extends ComputerEssentialComponen
         super(component);
     }
 
-    public async selectRAM(value: string) {
+    public async selectRAM(value: string): Promise<string | null> {
         const RAM_DROPDOWN_INDEX: number = 1;
 
         const allDropdownOptions = await this.component.locator(this.allDropdownSelector).all()
@@ -37,8 +37,7 @@ export default class StandardComputerComponent extends ComputerEssentialComponen
             );
         }
 
-        await ramDropdown.selectOption({
-            index: optionIndex
-        });
+        await ramDropdown.selectOption({ index: optionIndex });
+        return optionFullText;
     }
 }
