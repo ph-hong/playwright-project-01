@@ -9,11 +9,12 @@ export abstract class ComputerEssentialComponent extends ProductEssentialCompone
 
     public abstract selectRAM(value: string): Promise<string | null>;
 
-    protected async selectComputerOption(type: string): Promise<string | null> {
-        const selectorValue = `//label[contains(text(), "${type}")]`;
+    protected async selectComputerOption(value: string): Promise<string | null> {
+        const selectorValue = `//label[contains(text(), "${value}")]`;
         const optionLocator = this.component.locator(selectorValue).first();
-        await this.component.locator(selectorValue).first().click();
+        
         await optionLocator.click();
+        
         return await optionLocator.textContent();
     }
 

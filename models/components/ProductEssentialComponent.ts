@@ -9,12 +9,12 @@ export default class ProductEssentialComponent {
 
     public async unselectAllOptions() {
         const allOptionLocator: Locator[] = await this.component.locator(this.allOptionSelector).all();
+        
         for (const optionLocator of allOptionLocator) {
             const isOptionSelected = await optionLocator.getAttribute("checked");
             if (isOptionSelected) {
                 await optionLocator.click();
             }
-
         }
     }
 }

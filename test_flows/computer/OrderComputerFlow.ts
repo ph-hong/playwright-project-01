@@ -18,11 +18,27 @@ export class OrderComputerFlow {
         await computerComponent.unselectAllOptions();
 
         // Build computer spec based on test data
-        const { processorType, hdd, ram, software, os } = this.computerData
-        const ramOptionFullTex = await computerComponent.selectRAM(ram);
-        console.log(`ramOptionFullText: ${ramOptionFullTex}`);
+        // this.computerData.ram = '2 GB';
+        const { processorType, hdd, ram, software, os } = this.computerData;
+        const ramAdditionalPrice = this.getAdditionalPrice(await computerComponent.selectRAM(ram));
+        console.log(`ramAdditionalPrice: ${ramAdditionalPrice}`);
+
+        // 8 GB  [+60.00]
 
         // DEBUG purpose only
         await this.page.waitForTimeout(3 * 1000);
+    }
+
+    private getAdditionalPrice(optionFullText: string | null): number {
+        if (optionFullText === null) {
+            optionFullText = '';
+        }
+
+        const regex = /\+\d+\.\d/g;
+        const matches = optionFullText.match(regex);
+        if (matches) {
+            return Number(matches[0].replace('+', '').trim())
+        }
+        return 0;
     }
 }
