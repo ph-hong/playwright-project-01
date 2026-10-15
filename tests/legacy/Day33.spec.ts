@@ -1,7 +1,7 @@
 import test from "@playwright/test";
-import StandardComputerComponent from "../models/components/computer/StandardComputerComponent";
-import CheapComputerComponent from "../models/components/computer/CheapComputerComponent";
-import { ComputerDetailsPage } from "../models/pages/ComputerDetailsPage";
+import StandardComputerComponent from "../../models/components/computer/StandardComputerComponent";
+import CheapComputerComponent from "../../models/components/computer/CheapComputerComponent";
+import { ComputerDetailsPage } from "../../models/pages/ComputerDetailsPage";
 
 test("Cheap Computer Component Test", async ({ page }) => {
     await page.goto("/build-your-cheap-own-computer");
@@ -20,7 +20,7 @@ test("Standard Computer Test", async ({ page }) => {
     // StandardComputerComponent: JUST A TEMPLATE
     const computerComponent = computerDetailsPage.computerComponent(StandardComputerComponent);
     await computerComponent.selectRAM("8GB");
-    await page.waitForTimeout(3 * 1000;
+    await page.waitForTimeout(3 * 1000);
 });
 
 // test("Test annotation - decorator approach", async ({ page }) => {

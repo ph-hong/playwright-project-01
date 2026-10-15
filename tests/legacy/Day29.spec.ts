@@ -1,6 +1,6 @@
 import { expect, Page, test } from '@playwright/test';
-import { scrollToBottom } from '../utils/PageUtils';
-import { getAdvertisingParams } from '../utils/AdUtils';
+import { scrollToBottom } from '../../utils/PageUtils';
+import { getAdvertisingParams } from '../../utils/AdUtils';
 
 test.describe('Handle Alerts', () => {
 

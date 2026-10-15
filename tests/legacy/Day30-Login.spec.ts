@@ -1,6 +1,6 @@
 import test from "@playwright/test";
-import LoginPage from "../models/pages/LoginPage";
-import { LoginCreds } from "../types/DataTypes";
+import LoginPage from "../../models/pages/LoginPage";
+import { LoginCreds } from "../../types/DataTypes";
 
 const loginCreds: LoginCreds = {
     username: "tomsmith",
