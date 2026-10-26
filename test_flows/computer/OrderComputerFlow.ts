@@ -20,10 +20,14 @@ export class OrderComputerFlow {
         // Build computer spec based on test data
         // this.computerData.ram = '2 GB';
         const { processorType, hdd, ram, software, os } = this.computerData;
+        const processorAdditionalPrice = this.getAdditionalPrice(await computerComponent.selectProcessor(processorType));
         const ramAdditionalPrice = this.getAdditionalPrice(await computerComponent.selectRAM(ram));
-        console.log(`ramAdditionalPrice: ${ramAdditionalPrice}`);
+        const hddAdditionalPrice = this.getAdditionalPrice(await computerComponent.selectHDD(hdd));
 
-        // 8 GB  [+60.00]
+
+        console.log(`processorAdditionalPrice: ${processorAdditionalPrice}`);
+        console.log(`ramAdditionalPrice: ${ramAdditionalPrice}`);
+        console.log(`hddAdditionalPrice: ${hddAdditionalPrice}`);
 
         // DEBUG purpose only
         await this.page.waitForTimeout(3 * 1000);
